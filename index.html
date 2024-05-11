@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Reading Notes Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { margin-top: 20px; }
+        label, select, input[type=file] { margin-top: 10px; }
+        .category { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Personal Reading Notes Blog</h1>
+    <p>Welcome to my personal reading notes blog. You can upload your notes in Markdown or Word format.</p>
+    
+    <div class="container">
+        <label for="fileUpload">Upload your document:</label>
+        <input type="file" id="fileUpload" accept=".md,.docx">
+        
+        <div class="category">
+            <label for="categorySelect">Choose a category:</label>
+            <select id="categorySelect">
+                <option value="psychology">Psychology</option>
+                <option value="computerScience">Computer Science</option>
+                <option value="philosophy">Philosophy</option>
+                <option value="popularLiterature">Popular Literature</option>
+            </select>
+        </div>
+        
+        <button onclick="uploadDocument()">Upload Document</button>
+    </div>
+
+    <script>
+        function uploadDocument() {
+            const fileInput = document.getElementById('fileUpload');
+            const categorySelect = document.getElementById('categorySelect');
+            
+            if (fileInput.files.length === 0) {
+                alert('Please select a file to upload.');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const category = categorySelect.value;
+            alert('You uploaded ' + file.name + ' to ' + category + '.');
+            
+            // Here you would typically handle the file upload with an AJAX request.
+            // Since this functionality requires server-side support, this example only provides a basic front-end setup.
+        }
+    </script>
+</body>
+</html>
